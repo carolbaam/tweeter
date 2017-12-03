@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
    }
-   
+
    body {
     background-image: url(../assets/images/mexico.jpg);
     background-position:center;
@@ -14,7 +14,7 @@
     height:600px;
     margin-top:80px;
    }
-   
+
    header {
     background-color: rgb(107,208,240);
      color: white;
@@ -31,20 +31,20 @@
     margin-top:30px;
     padding-right:10px;
    }
-   
-   
+
+
    h1 {
       font-size: 35px;
       padding-left: 1%;
       padding-top: 1%;
    }
-   
+
    /*primera seccion */
    main.container{
     padding-left: 10%;
     padding-right:10%;
    }
-   
+
    .hi_container{
     width:450px;
     height: 300px;
@@ -52,15 +52,15 @@
     padding-top:50px;
     padding-left:20px;
    }
-   
-   
+
+
    /* segunda seccion*/
    .text-area{
     background-color: white;
     height: 300px;
     width:450px;
    }
-   
+
    textarea{
      background-color: white;
      border-top: none;
@@ -73,7 +73,7 @@
      box-sizing: padding-box;
      padding: 10px;
    }
-   
+
    .button{
     border-radius: 5px;
     display: inline-block;
@@ -82,14 +82,14 @@
     padding: 10px 20px;
     cursor: pointer;
    }
-   
+
    .boton:hover{
     background-color: white;
    }
    /* tercera seccion*/
-   
+
    .block_seccion{
-    width: 100%;
+    width: 50%;
     height: auto;
     background-color: white;
     margin-top:30px;
