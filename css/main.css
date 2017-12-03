@@ -72,6 +72,9 @@
      overflow: hidden;
      box-sizing: padding-box;
      padding: 10px;
+     display: block;
+     width: 80%;
+      
    }
 
    .button{
