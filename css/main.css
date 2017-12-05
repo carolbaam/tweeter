@@ -61,6 +61,12 @@
     width:450px;
    }
 
+  #input_text{
+     background-color: white;
+
+
+   }
+
    textarea{
      background-color: white;
      border-top: none;
@@ -73,9 +79,24 @@
      box-sizing: padding-box;
      padding: 10px;
      display: block;
-     width: 80%;
-      
-   }
+
+  }
+.autoExpand:focus{
+  outline: none;
+}
+  #counter{
+  text-align: right;
+  margin-bottom: 1%;
+  display: inline-block;
+  float: right;
+  margin-top: 9%;
+  color:#83ADC5;
+  font-weight: bold;
+  }
+
+  div>#counter{
+    color:#83ADC5;
+  }
 
    .button{
     border-radius: 5px;
@@ -84,10 +105,14 @@
     background-color: rgb(107,208,240);
     padding: 10px 20px;
     cursor: pointer;
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+
    }
 
-   .boton:hover{
-    background-color: white;
+   .button:hover{
+    background-color: grey;
    }
    /* tercera seccion*/
 

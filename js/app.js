@@ -6,13 +6,13 @@ document.getElementById("text").addEventListener('keyup', autosize);
 function disableBtn() {
     document.getElementById("button").disabled = true;
   }
-  
+
 function undisableBtn() {
     document.getElementById("button").disabled = false;
   }
-  
+
 function createCont (event){
-   var twittContText = document.getElementById("text").value;    
+   var twittContText = document.getElementById("text").value;
     if (twittContText == ""){
         return disableBtn;
     } else {
@@ -24,7 +24,7 @@ function createCont (event){
         var newP1 = document.createElement("p");
         newP1.innerText = clock();
         newP1.setAttribute("id","time");
-       
+
         var newDiv= document.createElement("div");
         var contTwitt = document.createElement("section");
         newDiv.appendChild(newP);
@@ -50,13 +50,14 @@ function count (event){
   //totalLength muestra la resta de los caracteres insertados
   totalLength=maxLength-textLength;
   document.getElementById("counter").innerText=totalLength;
+  totalLength.style.color=#83ADC5;
   if(totalLength<=0){
     return disableBtn();
    }
   else if(totalLength<=20 && totalLength>10){
     document.getElementById("counter").style.color="blue";
     return undisableBtn();
-  } 
+  }
   else if(totalLength<=10 && totalLength>=1 ){
     document.getElementById("counter").style.color="red";
     return undisableBtn();
@@ -76,7 +77,7 @@ function autosize(){
       el.style.cssText = 'height:' + el.scrollHeight + 'px';
     },0);
   };
-  
+
   //función reloj
 
 function clock(){
