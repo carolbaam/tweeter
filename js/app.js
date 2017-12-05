@@ -1,25 +1,31 @@
 document.getElementById("button").addEventListener("click", createCont);
 document.getElementById("text").addEventListener("keyup", count);
-document.getElementById("text").addEventListener('keyup', autosize);
+document.getElementById("text").addEventListener('keydown', autosize);
 
 //funciones para botón
 function disableBtn() {
     document.getElementById("button").disabled = true;
+    
   }
   
 function undisableBtn() {
     document.getElementById("button").disabled = false;
   }
   
+  //var twittContText = document.getElementById("text").value;    
+  
+  
 function createCont (event){
    var twittContText = document.getElementById("text").value;    
     if (twittContText == ""){
         return disableBtn;
-    } else {
+   }if(twittContText=="" && twittContText!==string){
+      return disableBtn;
+  } else {
         var newP = document.createElement("p");
         newP.setAttribute("id","show_twitt");
         //Guarda el valor que se ingresa a twittCont
-        var twittContText = document.getElementsByName("text").value;
+        var twittContText = document.getElementById("text").value;
         newP.innerText=twittContText;
         var newP1 = document.createElement("p");
         newP1.innerText = clock();
@@ -41,6 +47,8 @@ function createCont (event){
         counter.textContent=140;
     }
 };
+
+
 // Función que realiza el conteo de caracteres
 function count (event){
   var maxLength=140;
@@ -54,7 +62,7 @@ function count (event){
     return disableBtn();
    }
   else if(totalLength<=20 && totalLength>10){
-    document.getElementById("counter").style.color="blue";
+    document.getElementById("counter").style.color="green";
     return undisableBtn();
   } 
   else if(totalLength<=10 && totalLength>=1 ){
@@ -62,19 +70,15 @@ function count (event){
     return undisableBtn();
   }
   else {
-    document.getElementById("counter").style.color="black";
+    document.getElementById("counter").style.color="blue";
   }
 };
 
-//función para agrandar caja con texto
-function autosize(){
-    var el = this;
-    setTimeout(function(){
-      el.style.cssText = 'height:auto; padding:0';
-      // for box-sizing other than "content-box" use:
-      // el.style.cssText = '-moz-box-sizing:content-box';
-      el.style.cssText = 'height:' + el.scrollHeight + 'px';
-    },0);
+//función para agrandar caja con texto dependiendo del tamaño del texto
+function autosize(event){
+    
+  document.getElementById("text").style.cssText = 'height:' + document.getElementById("text").scrollHeight + 'px';
+   
   };
   
   //función reloj
