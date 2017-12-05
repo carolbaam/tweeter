@@ -1,11 +1,38 @@
 document.getElementById("button").addEventListener("click", createCont);
 document.getElementById("text").addEventListener("keyup", count);
-document.getElementById("text").addEventListener('keyup', autosize);
+document.getElementById("text").addEventListener("keyup", Btn);
+window.addEventListener("load", Btn);
+//document.getElementById("text").addEventListener('keyup', autosize);
+document.getElementById("text").addEventListener("input",autosize);
 
 //funciones para botón
-function disableBtn() {
-    document.getElementById("button").disabled = true;
+function Btn(event) {
+  var twittContText = document.getElementById("text").value;
+  if(twittContText === ""){
+    return disableBtn();
+  } else if (twittContText === " ") {
+    return disableBtn();
   }
+
+};
+
+function disableBtn() {
+  document.getElementById("button").disabled = true;
+  document.getElementById("button").style.backgroundColor = "lightgrey";
+  document.getElementById("button").style.color = "grey";
+};
+
+function undisableBtn() {
+  counter.style.font="black";
+  document.getElementById("button").disabled = false;
+  document.getElementById("button").style.backgroundColor = "rgb(107,208,240)";
+  document.getElementById("button").style.color = "white";
+};
+
+function createCont (event){
+   var twittContText = document.getElementById("text").value;
+    /*if (twittContText == ""){
+
 
 function undisableBtn() {
     document.getElementById("button").disabled = false;
@@ -14,12 +41,13 @@ function undisableBtn() {
 function createCont (event){
    var twittContText = document.getElementById("text").value;
     if (twittContText == ""){
+
         return disableBtn;
-    } else {
+    } else {*/
         var newP = document.createElement("p");
         newP.setAttribute("id","show_twitt");
         //Guarda el valor que se ingresa a twittCont
-        var twittContText = document.getElementsByName("text").value;
+        var twittContText = document.getElementById("text").value;
         newP.innerText=twittContText;
         var newP1 = document.createElement("p");
         newP1.innerText = clock();
@@ -39,7 +67,9 @@ function createCont (event){
         //Borrar el contenido de la caja de text y el contador
         text.value="";
         counter.textContent=140;
-    }
+        document.getElementById("text").setAttribute("rows", "4");
+        disableBtn();
+    //}
 };
 // Función que realiza el conteo de caracteres
 function count (event){
@@ -50,32 +80,40 @@ function count (event){
   //totalLength muestra la resta de los caracteres insertados
   totalLength=maxLength-textLength;
   document.getElementById("counter").innerText=totalLength;
-  totalLength.style.color=#83ADC5;
-  if(totalLength<=0){
+
+  if (totalLength === 140){
+    document.getElementById("counter").style.color="black";
+
     return disableBtn();
-   }
+  }else if(totalLength<0){
+   document.getElementById("counter").style.color="grey";
+   return disableBtn();
+ }
   else if(totalLength<=20 && totalLength>10){
     document.getElementById("counter").style.color="blue";
     return undisableBtn();
   }
-  else if(totalLength<=10 && totalLength>=1 ){
+
+  else if(totalLength<=10 && totalLength>=0 ){
+
     document.getElementById("counter").style.color="red";
     return undisableBtn();
   }
   else {
     document.getElementById("counter").style.color="black";
+    //document.getElementById("button").style.backgroundcolor="rgb(107,208,240)";
+    return undisableBtn();
   }
 };
 
 //función para agrandar caja con texto
-function autosize(){
-    var el = this;
-    setTimeout(function(){
-      el.style.cssText = 'height:auto; padding:0';
-      // for box-sizing other than "content-box" use:
-      // el.style.cssText = '-moz-box-sizing:content-box';
+function autosize(event){
+    var el = document.getElementById("text");
+  //setTimeout(function(){
+    //setTimeout(function(){
+      el.style.cssText = 'height:auto; padding:10px';
       el.style.cssText = 'height:' + el.scrollHeight + 'px';
-    },0);
+    //},0);
   };
 
   //función reloj
