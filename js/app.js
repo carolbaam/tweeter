@@ -2,8 +2,11 @@ document.getElementById("button").addEventListener("click", createCont);
 document.getElementById("text").addEventListener("keyup", count);
 document.getElementById("text").addEventListener("keyup", Btn);
 window.addEventListener("load", Btn);
-//document.getElementById("text").addEventListener('keyup', autosize);
 document.getElementById("text").addEventListener("input",autosize);
+
+
+
+
 
 //funciones para botón
 function Btn(event) {
@@ -12,6 +15,7 @@ function Btn(event) {
     return disableBtn();
   } else if (twittContText === " ") {
     return disableBtn();
+
   }
 
 };
@@ -38,12 +42,22 @@ function undisableBtn() {
     document.getElementById("button").disabled = false;
   }
 
+  
+  //var twittContText = document.getElementById("text").value;    
+  
+  
+
 function createCont (event){
    var twittContText = document.getElementById("text").value;
     if (twittContText == ""){
 
-        return disableBtn;
+
+   }if(twittContText=="" && twittContText!==string){
+      return disableBtn;
+  } else {
+
     } else {*/
+
         var newP = document.createElement("p");
         newP.setAttribute("id","show_twitt");
         //Guarda el valor que se ingresa a twittCont
@@ -71,6 +85,8 @@ function createCont (event){
         disableBtn();
     //}
 };
+
+
 // Función que realiza el conteo de caracteres
 function count (event){
   var maxLength=140;
@@ -90,7 +106,7 @@ function count (event){
    return disableBtn();
  }
   else if(totalLength<=20 && totalLength>10){
-    document.getElementById("counter").style.color="blue";
+    document.getElementById("counter").style.color="green";
     return undisableBtn();
   }
 
@@ -100,10 +116,20 @@ function count (event){
     return undisableBtn();
   }
   else {
+
+    document.getElementById("counter").style.color="blue";
+  }
+};
+
+//función para agrandar caja con texto dependiendo del tamaño del texto
+function autosize(event){
+    
+  document.getElementById("text").style.cssText = 'height:' + document.getElementById("text").scrollHeight + 'px';
+
     document.getElementById("counter").style.color="black";
     //document.getElementById("button").style.backgroundcolor="rgb(107,208,240)";
     return undisableBtn();
-  }
+  
 };
 
 //función para agrandar caja con texto
