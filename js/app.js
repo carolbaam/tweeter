@@ -13,6 +13,7 @@ function Btn(event) {
   } else if (twittContText === " ") {
     return disableBtn();
   }
+
 };
 
 function disableBtn() {
@@ -31,6 +32,16 @@ function undisableBtn() {
 function createCont (event){
    var twittContText = document.getElementById("text").value;
     /*if (twittContText == ""){
+
+
+function undisableBtn() {
+    document.getElementById("button").disabled = false;
+  }
+
+function createCont (event){
+   var twittContText = document.getElementById("text").value;
+    if (twittContText == ""){
+
         return disableBtn;
     } else {*/
         var newP = document.createElement("p");
@@ -69,8 +80,10 @@ function count (event){
   //totalLength muestra la resta de los caracteres insertados
   totalLength=maxLength-textLength;
   document.getElementById("counter").innerText=totalLength;
+
   if (totalLength === 140){
     document.getElementById("counter").style.color="black";
+
     return disableBtn();
   }else if(totalLength<0){
    document.getElementById("counter").style.color="grey";
@@ -80,7 +93,9 @@ function count (event){
     document.getElementById("counter").style.color="blue";
     return undisableBtn();
   }
+
   else if(totalLength<=10 && totalLength>=0 ){
+
     document.getElementById("counter").style.color="red";
     return undisableBtn();
   }
