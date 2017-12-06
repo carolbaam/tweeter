@@ -4,10 +4,6 @@ document.getElementById("text").addEventListener("keyup", Btn);
 window.addEventListener("load", Btn);
 document.getElementById("text").addEventListener("input",autosize);
 
-
-
-
-
 //funciones para botón
 function Btn(event) {
   var twittContText = document.getElementById("text").value;
@@ -15,9 +11,7 @@ function Btn(event) {
     return disableBtn();
   } else if (twittContText === " ") {
     return disableBtn();
-
   }
-
 };
 
 function disableBtn() {
@@ -70,7 +64,7 @@ function count (event){
   //totalLength muestra la resta de los caracteres insertados
   totalLength=maxLength-textLength;
   document.getElementById("counter").innerText=totalLength;
-
+  //Cambios de estilo al contador de caracteres
   if (totalLength === 140){
     document.getElementById("counter").style.color="black";
     return disableBtn();
@@ -89,19 +83,19 @@ function count (event){
   }
   else {
     document.getElementById("counter").style.color="blue";
+    return undisableBtn();
   }
 };
 
 //función para agrandar caja con texto dependiendo del tamaño del texto
 function autosize(event){
-  document.getElementById("text").style.cssText = 'height:' + document.getElementById("text").scrollHeight + 'px';
+  document.getElementById("text").style.cssText = 'height:auto; padding:10px';
+  document.getElementById("text").style.cssText ='height:'+ document.getElementById("text").scrollHeight + 'px';
   document.getElementById("counter").style.color="black";
-  //document.getElementById("button").style.backgroundcolor="rgb(107,208,240)";
   return undisableBtn();
 };
 
   //función reloj
-
 function clock(){
   var day = new Date();
   hour = day.getHours();
